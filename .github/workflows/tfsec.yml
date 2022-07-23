@@ -1,4 +1,4 @@
-name: 'TFsec'
+name: tfsec
 
 on:
   push:
@@ -8,8 +8,10 @@ on:
 
 jobs:
   tfsec:
-    name: 'TFsec'
+    name: tfsec scan
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: aquasecurity/tfsec-action@v1.0.2
+      - name: clone repo
+        uses: actions/checkout@v2
+      - name: tfsec
+        uses: aquasecurity/tfsec-action@v1.0.2
