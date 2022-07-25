@@ -1,0 +1,17 @@
+---
+checks:
+  - code: CUS001
+    description: Custom check to ensure the CostCentre tag is applied to S3 buckets
+    impact: By not having CostCentre we can't keep track of billing
+    requiredTypes:
+      - resource
+    requiredLabels:
+      - aws_s3_bucket
+    severity: MEDIUM
+    matchSpec:
+      name: tags
+      action: contains
+      value: CostCentre
+    errorMessage: The required CostCentre tag was missing
+    relatedLinks:
+      - http://internal.acmecorp.com/standards/aws/tagging.html
