@@ -1,10 +1,10 @@
 resource "aws_s3_bucket" "sample_bucket" {
-    bucket = "my-bucket"
+  bucket = "my-bucket"
 }
 
 resource "aws_s3_bucket_acl" "bucket_acl" {
   bucket = aws_s3_bucket.sample_bucket.id
-  acl = "authenticated-read"
+  acl    = "authenticated-read"
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_encrypt_config" {
